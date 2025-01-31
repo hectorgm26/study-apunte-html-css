@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etiquetas extras</title>
+</head>
+<body>
+  
+  <h1>Etiquetas extras</h1>
+
+<!-- La etiqueta figure representa contenido indepediente con titulo, y se usa para contener y enmarcar imagenes, s0n en bloque, por lo que se colocaran en cada linea distinta debajo de la otra-->
+ <!-- La etiqueta figcaption se usa para describir el contenido de la etiqueta figure, se coloca dentro de la etiqueta figure -->
+  <figure>
+    <img src="./assets" alt="Imagen de un gato">
+    <figcaption>Imagen de un gato</figcaption>
+  </figure>
+
+  <!-- La etiqueta picture se usa para mostrar versiones distintas de una imagen, dependiendo del tamaño de la pantalla, se usa con la etiqueta source, y se coloca la imagen principal en la etiqueta img -->
+  <!-- La etiqueta source se usa para definir la imagen que se mostrara dependiendo del tamaño de la pantalla, se coloca dentro de la etiqueta picture, y se le asigna el atributo srcset con la ruta de la imagen y el atributo media con la condicion de tamaño de pantalla. Si la pantalla no cumple la medida definida, se mostrara la imagen de la etiqueta img en vez de la de source -->
+  <picture>
+    <source srcset="./assets" media="(min-width: 500px)">
+    <img src="./assets" alt="Imagen de un gato">
+  </picture>
+
+</body>
+</html>

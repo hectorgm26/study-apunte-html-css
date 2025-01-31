@@ -1,0 +1,85 @@
+*{
+margin: 0;
+box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.parent{
+  margin: 30px auto;
+  width: 350px;
+  padding: 1rem;
+  background-color: indigo;
+  /* position: relative; */
+}
+
+.child{
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+  text-align: center;
+  color:#fff;
+  padding-top: 1em;
+}
+
+.absolute{
+  background-color: slateblue;
+
+  /* position: absolute;
+  top: 0;
+  left: 60px */
+
+  /* margin-bottom: 0;
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0; */
+}
+
+.fixed{
+  background-color: crimson;
+
+  /* position: fixed;
+  top: 30px;
+  left: 80px;
+}
+
+.relative{
+  position: relative;
+  left: 110px; */
+}
+
+
+/*
+La propiedad position nos permite controlar la posición de un elemento en la página
+Los valores que puede tomar son:
+
+- static: es el valor por defecto, los elementos se colocan en el orden en el que aparecen en el código HTML
+
+- relative: el elemento se coloca en relación a su posición original, desbloqueando 4 propiedades: top, right, bottom y left
+
+top: mueve/empuja al elemento desde la parte superior del elemento hacia abajo, es decir, desde su posicion inicial en la parte de arriba, moviendose, pero respetando siempre su espacio disponible reservado, MUY DIFERENTE A COLOCAR UN MARGIN-TOP, QUE MOVERA A TODOS LOS ELEMENTOS QUE ESTEN DEBAJO DE ESTE ELEMENTO, y top solo despazara a dicho elemento con la propiedad
+right: distancia desde la parte derecha del contenedor, empujando al elemento hacia la izquierda (de derecha a izquierda)
+bottom: distancia desde la parte inferior del contenedor, empujando al elemento hacia arriba (de abajo hacia arriba)
+left: distancia desde la parte izquierda del contenedor, empujando al elemento hacia la derecha (de izquierda a derecha)
+SI SE COLOCAN VALORES NEGATIVOS, SE DESPLAZARA EN LA DIRECCION CONTRARIA
+
+- absolute: el elemento se posicionara absolutamente en base a su padre o contenedor mas cercano, que tenga un position diferente a static, y si no encuentra un position diferente a static, se posicionara en base al viewport
+
+tambien desbloquea las propiedades top, right, bottom y left, pero esta vez estas no empujaran en la direccion contraria, sino que moveran al elemento en la direccion que se les indique, y si se coloca un valor negativo, se movera en la direccion contraria
+
+- fixed: hace que el elemento se quede fijo en la pantalla, saliendo del flujo normal del contenedor, ya que se posicionara en base al viewport del navegador de manera, y no en base a su contenedor, inclusive si hay un scroll, y tambien desbloquea las propiedades top, right, bottom y left, y se comporta como absolute, pero en lugar de moverse en base a su contenedor, se movera en base a la ventana del navegador
+
+las propiedades top, right, bottom y left funcionan como en el relative, es decir, empujan en direccion contraria, y si se colocan valores negativos, se moveran en la direccion contraria
+
+TANTO RELATIVE, ABSOLUTE Y FIXED, DESBLOQUEAN UNA PROPIEDAD RELACIONADA AL CONTEXTO DE APILAMIENTO, QUE ES Z-INDEX, QUE PERMITE CONTROLAR EL ORDEN DE APILAMIENTO DE LOS ELEMENTOS, Y SE COLOCA UN VALOR ENTERO, Y EL ELEMENTO CON EL Z-INDEX MAS ALTO, SE COLOCARA ENCIMA DE LOS ELEMENTOS CON Z-INDEX MAS BAJO. TODOS LOS ELEMENTOS QUE TIENEN UN POSITION DISTINTO A STATIC TIENEN ESTE CONTEXTO, DEFINIENDO QUE ELEMENTO ESTARA ENCIMA DE OTRO, EN CASO DE QUE SE SUPERPONGAN
+Por defecto el z-index es auto, es decir, el navegador se encarga de definir el orden de apilamiento de los elementos (aunque la regla es que el ultimo elemento en ser puesto en el html es el que queda arriba), y auto da el valor 0 (el valor maximo es de 2147483647, y el minimo es de -2147483648, siempre siendo numeros enteros, recomendable en decenas o centenas), y si se coloca un valor negativo, se colocara debajo de los elementos con z-index 0, y si se coloca un valor positivo, se colocara encima de los elementos con z-index 0
+
+- sticky: el elemento se coloca en relación a su contenedor más cercano con posición relativa, pero se comporta como fixed cuando se desplaza fuera de la pantalla
+*/

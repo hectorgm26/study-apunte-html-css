@@ -1,0 +1,126 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+  width: 450px;
+  height: 500px;
+  margin: 40px auto;
+  border: 4px solid black; /* Outline es un borde que no afecta al tamaño del contenedor, y sirve para visualizar el tamaño del contenedor */
+
+  display: flex;
+
+  flex-direction: row;
+
+  /* justify-content: space-evenly; */
+  
+  align-items: center;
+
+}
+
+.child{
+  width: 80px;
+  height: 80px;
+
+  color:#fff;
+  font-size: 2rem;
+  text-align: center;
+
+  order: 0;
+
+  flex-grow: 0;
+  flex-shrink: 1;
+
+}
+
+.child--1{
+  background-color: indigo;
+}
+
+.child--2{
+  background-color: deeppink;
+}
+
+.child--3{
+  background-color: royalblue;
+}
+
+.child--4{
+  background-color: seagreen;
+}
+
+
+/*
+Flexbox es el modulo de caja flexible de CSS, que permite a los elementos hijos de un contenedor, acomodarse de manera automática en una fila o columna, y distribuirse de manera uniforme en el espacio disponible. Creado para crear layyouts de forma sencilla y trabaja de manera unidimensional, es decir, trabaja con un eje principal.
+
+Para activar flexbox en un contenedor, se debe usar la propiedad display con el valor flex, y se necesita tener un elemento contenedor "container", y uno o varios elementos hijos, que heredaran la propiedad y se volveran flex-items
+
+Comportamiento por defecto de elementos flexbox:
+Con esta propiedad los elementos bloques pasan a posicionarse en fila unos tras otros, pegandose al borde izquierdo inicial del contenedor, y se ajustan al tamaño del contenedor. Si los elementos no tienen ancho definido, su ancho se determinara de acuerdo a su contenido, a pesar de ser elementos bloque.
+
+Y en los casos donde no hay un height definido, es decir en auto, los elementos se estiran por completo, ocupando todo el alto del contenedor.
+
+Flexbox trabaja con un eje principal llamado main axis, y un eje secundario llamado cross axis. El main axis es el eje en el que se acomodan los elementos, y el cross axis es el eje perpendicular al main axis, ES DECIR, OPUESTO AL EJE PRINCIPAL.
+
+EL EJE PRINCIPAL ES DEFINIDO POR LA PROPIEDAD FLEX-DIRECTION, QUE PUEDE TENER LOS SIGUIENTES VALORES:
+- row: los elementos se acomodan en fila de izquierda a derecha (VALOR POR DEFECTO).
+- row-reverse: los elementos se acomodan en fila de derecha a izquierda.
+- column: los elementos se acomodan en columna de arriba hacia abajo e una sola columna, hasta que no haya mas espacio.
+- column-reverse: los elementos se acomodan en columna de abajo hacia arriba.
+
+JUSTIFY-CONTENT (EJE PRINCIPAL)
+Para alinear items en el eje principal main axiss (DEBE HABER ESPACIO EN EL EJE DONDE SE APLIQUEN LAS ALINEACIONES), se usa la propiedad justify-content, y debe ir en el contenedor, que puede tener los siguientes valores:
+- flex-start: los elementos se acomodan al inicio del eje principal (VALOR POR DEFECTO).
+- flex-end: los elementos se acomodan al final del eje principal.
+- center: los elementos se acomodan en el centro del eje principal.
+- space-between: los elementos se distribuyen de manera uniforme en el espacio disponible, dejando un espacio entre ellos de manera equitativa, y el primer elemento se pega al inicio del contenedor y el ultimo al final del contenedor, y en base a eso se distribuyen los elementos.
+- space-around: los elementos se distribuyen de manera uniforme en el espacio disponible, dejando un espacio en ambos lados de todos los elementos. ACLARACION, SIEMPRE AL MEDIO SE VERA MAS ESPACIO QUE EN LOS EXTREMOS, PERO ES PORQUE EL ESPACIO DE LOS ELEMENTOS LO TIENEN TODOS LOS ELEMENTOS EN SUS DOS LADOS, Y NO SOLO UNO COMO EN SPACE-BETWEEN, LO QUE HARA QUE CUANDO SE JUNTEN DOS ESPACIOS DE DOS ELEMENTOS, SE VERA MAS ESPACIO EN EL MEDIO.
+- space-evenly: los elementos se distribuyen de manera uniforme en el espacio disponible, dejando un espacio en ambos lados de todos los elementos, y ademas, se distribuye un espacio adicional entre cada elemento, de manera equitativa HACIA TODOS LOS LADOS, tanto en esquinas como en medios
+
+ALIGN-ITEMS (EJE SECUNDARIO - PARA CENTRAR VERTICALMENTE EN ROW, Y HORIZONTALMENTE EN COLUMN)
+Para acomodar los elementos en el eje secundario cross axis, siempre que haya espacio en areas disponibles, se usa la propiedad align-items, que puede tener los siguientes valores:
+- stretch: los elementos que no tienen un height definido se estiran para ocupar todo el alto del contenedor (VALOR POR DEFECTO).
+- flex-start: los elementos se acomodan al inicio del eje secundario, es decir, si es en row, se acomodan arriba hacia la derecha, si es en column, se acomodan a la izquierda hacia abajo.
+- flex-end: los elementos se acomodan al final del eje secundario
+- center: los elementos se acomodan en el centro del eje secundario, es decir, si es en row, se acomodan en el centro vertical de forma horizontal, y si es en column, se acomodan en el centro horizontal de forma vertical.
+- baseline: los elementos se acomodan de acuerdo a la linea base de su contenido, es decir, por ejemplo, si hay texto, se acomodan de acuerdo a la linea base de las letras, y si hay imagenes, se acomodan de acuerdo a la linea base de la imagen.
+
+ALIGN-CONTENT
+Esta tambien la propiedad align-content, que se usa para acomodar los elementos en el eje secundario cross axis, y solo funciona cuando hay mas de una fila o columna de elementos, es decir, cuando tenemos el flex-wrap en wrap o wrap-reverse, o cuando hay mas elementos que espacio disponible en el contenedor, y puede tener los siguientes valores:
+- stretch: los elementos se estiran para ocupar todo el alto del contenedor (VALOR POR DEFECTO).
+- flex-start: los elementos se acomodan al inicio del eje secundario.
+- flex-end: los elementos se acomodan al final del eje secundario.
+- center: los elementos se acomodan en el centro del eje secundario.
+- space-between: los elementos se distribuyen de manera uniforme en el espacio disponible, dejando un espacio entre ellos, mandando por ejemplo el primer elemento al inicio del contenedor, y ultimo al final del contenedor, y en base a eso se distribuyen los elementos.
+- space-around: los elementos se distribuyen de manera uniforme en el espacio disponible, pero sumando un espacio adicional en ambos lados de todos los elementos, es decir, se distribuye un espacio adicional en los extremos de los elementos, y en el medio de los elementos, y en base a eso se distribuyen los elementos.
+- space-evenly: los elementos se distribuyen de manera uniforme en el espacio disponible, dejando un espacio en ambos lados de todos los elementos, y ademas, se distribuye un espacio adicional entre cada elemento, de manera equitativa HACIA TODOS LOS LADOS, tanto en esquinas como en medios.
+
+LA DIFERENCIA ENTRE ALIGN-ITEMS Y ALIGN-CONTENT, ES QUE ALIGN-ITEMS ALINEA LOS ELEMENTOS DE MANERA INDIVIDUAL, MIENTRAS QUE ALIGN-CONTENT ALINEA LAS FILAS O COLUMNAS DE ELEMENTOS DE MANERA COLECTIVA.
+
+LOS HIJOS TAMBIEN TIENEN PROPIEDADES QUE PUEDEN SER APLICADAS DE MANERA INDIVIDUAL, Y ESTAS SON LAS PROPIEDADES FLEX, QUE SON PROPIEDADES QUE SE APLICAN A LOS ELEMENTOS FLEX, Y PUEDEN SER APLICADAS DE MANERA INDIVIDUAL A CADA ELEMENTO HIJO. TODAS ESTAS PROPIEDADES TIENEN UN ORDER DE 0 Y LOS ELEMENTOS SE ORDENAN EB BASE AL ORDEN EN EL HTML, PERO SE PUEDEN CAMBIAR CON ESTA PROPIEDAD, CAMBIANDOSE EL ORDEN DE MENOR A MAYOR (ADMITIENDO VALOES NEGATIVOS, Y ESTAS PROPIEDADES SON:
+order: define el orden en el que se acomodan los elementos flex, y puede tener valores numericos, y se acomodan de menor a mayor, y si son iguales, se acomodan de acuerdo al orden en el HTML.
+flex-grow: existen dos tipos de espacios, espacio faltante, que es el espacio que falta para completar el tamaño del contenedor, y espacio sobrante, que es el espacio que sobra al completar el tamaño del contenedor. Flex-grow define la capacidad de crecimiento de los elementos flex cuando hay espacio sobrante, y puede tener valores numericos, y se acomodan de menor a mayor, y si son iguales, se acomodan de acuerdo al orden en el HTML. POR DEFECTO ES 0, POR LO QUE SI UN SOLO ELEMENTO TIENE FLEX-GROW MAYOR A CERO, ESE ELEMENTO SE AGRANDARA Y LOS DEMAS NO.
+flex-shrink: flex-shrink define la capacidad de reducción de los elementos flex cuando hay espacio faltante, y puede tener valores numericos, y se acomodan de menor a mayor, y si son iguales, se acomodan de acuerdo al orden en el HTML. POR DEFECTO ES 1, POR LO QUE SI UN SOLO ELEMENTO TIENE FLEX-SHRINK MAYOR A UNO, ESE ELEMENTO SE REDUCIRA Y LOS DEMAS NO, Y SI SE COLOCA EN CERO, NO SE REDUCIRA NINGUN ELEMENTO, ROMPIENDO EL LAYOUT.
+flex-basis: por defecto esta en auto, Y DETERMINA EL TAMAÑO DE LOS FLEX-ITEMS EN EL EJE PRINCIPAL, TIENE MAYOR PROPIEDAD QUE WIDTH Y HEIGHT, Y PUEDE TENER VALORES DE MEDIDAS, Y SE ACOMODAN DE MENOR A MAYOR, Y SI SON IGUALES, SE ACOMODAN DE ACUERDO AL ORDEN EN EL HTML. SI EL WRAP ESTA EN ROW, SE DEFINIRA EL ANCHO, Y SI ESTA EN COLUMN, SE DEFINIRA EL ALTO.
+
+La propiedad align-self permite alinear el elemento al cual le doy esa propiedad en el eje secundario, pero solo a ese elemento, y puede tener los mismos valores que align-items, y se acomodan de acuerdo a la propiedad, y si no se define, se toma el valor de align-items del contenedor. Los valores de align-self son:
+- stretch: los elementos que no tienen un height definido se estiran para ocupar todo el alto del contenedor.
+- flex-start: los elementos se acomodan al inicio del eje secundario.
+- flex-end: los elementos se acomodan al final del eje secundario.
+- center: los elementos se acomodan en el centro del eje secundario.
+- baseline: los elementos se acomodan de acuerdo a la linea base de su contenido.
+
+Para acomodar los elementos en el eje principal de manera individual, se usa la propiedad justify-self, que puede tener los siguientes valores:
+- flex-start: el elemento se acomoda al inicio del eje principal.
+- flex-end: el elemento se acomoda al final del eje principal.
+- center: el elemento se acomoda en el centro del eje principal.
+- space-between: el elemento se distribuye de manera uniforme en el espacio disponible, dejando un espacio entre ellos.
+- space-around: el elemento se distribuye de manera uniforme en el espacio disponible, dejando un espacio alrededor de ellos.
+
+
+*/

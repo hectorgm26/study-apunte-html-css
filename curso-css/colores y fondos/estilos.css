@@ -1,0 +1,126 @@
+/* color permite cambiar el color de texto de un elemento */
+/* background-color permite cambiar el color de fondo de un elemento */
+
+/* Formas de cambiar el color de texto */
+/* 1era forma: por palabra clave que representa un color, https://htmlcolorcodes.com/ */
+
+/* 2da forma: por valor hexadecimal, que va desde 0 a la letra f(mayor valor), se comienza con un signo #, se puede hacer con 3 valores pero en general se hace con 6 valores, los primeros dos ceros equivalen a rojo, los siguientes a verde, y los ultimos dos a azul, y se puede agregar un valor alfa adicional para las transparencias, asociado a por ejemplo 8a  */
+
+/* 3era forma: por valor RGB, funcion que permite elegir un color en base a 3 colores primarios, recibiendo valores entre 0 y 255, EL PRIMERO PARA ROJO, EL SEGUNDO VERDE Y EL TERCERO PARA AZUL, Y PODEMOS AGREGAR UN CUARTO VALOR ALFA QUE DETERMINARA LA TRASPARENCIA DEL 0 AL 1, SIENDO 1 EL VALOR PARA QUE SE VEA, Y 0 EL VALOR PARA QUE NO SE VEA, Y LOS VALORES INTERMEDOS SE DETERMINAN CON UN PUNTO Y EL VALOR, EJEMPLO .7 */
+
+/* 4ta forma: por valor hsl, determinado por 3 valores: el primero para el tono, el segundo para la saturacion y el tercero para el brillo, y se puede agregar un cuarto valor alfa para la transparencia, siendo el primer valor entre 0 y 360, el segundo entre 0 y 100 con un signo %, y el tercero entre 0 y 100 con un signo %, y el cuarto entre 0 y 1 */
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Lexend", serif, Arial, Helvetica, sans-serif; /* La lista de fuentes define un orden de prioridad, en casos de que no se pueda cargar una fuente, se cargara la siguiente, y si no se puede cargar ninguna, se cargara la fuente por defecto del navegador, y se recomienda colocar font-family en el sector body */
+
+  /* Colocar una fuente de internet sin descargara, se puede hacer con la funcion @import, y se puede hacer con la url de la fuente, PERO NO SE RECOMIENDA POR HACER LENTA LA WEB, SI se recomienda copiar por link en el html en la etiqueta meta, y ver la descripcion para seguir las reglas para identificarla en la etiqueta font-family*/
+
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+.main{
+  background-image: linear-gradient(#ff00008b, #0000ff71), url('./background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 80px 40px;
+  color: #fff;
+}
+
+/* Podemos estilizar textos con la propiedad text-transform, y se puede hacer con valores como uppercase, lowercase, capitalize, y none, y se puede hacer para cambiar el texto a mayusculas, minusculas, la primera letra de cada palabra en mayuscula, o no hacer nada */
+
+.main__titulo{
+  
+  letter-spacing: 20px; /* Espaciado entre letras, su valor por defecto es normal, y podemos darle de valores pixeles de espaciado, inclusive con valores negativos para que se junten */
+  word-spacing: 5px; /* Espaciado entre palabras */
+
+  /* Cuando el texto se desborda, y no queremos que pase, podemos usar la propiedad overflow-wrap, que define si el navegador debe crear saltos de linea en caso de textos largos, el valor por defecto es normal, y podemos cambiarlo a break-word para que se creen saltos de linea en palabras largas */
+  overflow-wrap: break-word;
+  /* text-transform: uppercase; Cambiar el texto a mayusculas o minusculas */
+  /* text-transform: capitalize;  Cambiar la primera letra de cada palabra a mayuscula */
+
+  text-align: center; /* text-aling permite alinear el texto, y se puede hacer con valores como left, right, center, justify, y inherit, y se puede alinear el texto al centro, a la izquierda, a la derecha, justificarlo, o heredar el valor de su padre, su valor por defecto es start a la izquierda */
+
+  font-size: 40px;
+
+  font-weight: bold;
+}
+
+.main__parrafo{
+
+  line-height: 30px; /* Propiedad que permite definir la altura de linea, y se puede hacer con valores en pixeles, porcentajes, y valores relativos, y su valor por defecto es normal, y podemos darle un valor para que el texto se vea mas separado o mas junto, se calcula multiplicando el valor por el tamaño de la fuente */
+
+  font-size: 20px; /* Propiedad que permite definir el tamaño de la fuente, y se puede hacer con valores en pixeles, porcentajes, y valores relativos, y su valor por defecto es medium, y podemos darle un valor para que el texto se vea mas grande o mas pequeño, por defecto es de 16px */
+
+  margin: 20px 0; 
+
+}
+
+.main_parrafo--segundo{
+
+  /* El font-weight permite definir el grosor de la fuente, y se puede hacer con valores como normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900, y se puede dar un valor para que el texto se vea mas grueso o mas delgado, y su valor por defecto es normal, para los titutlos por defecto es bold */
+  font-weight: 300;;
+
+  /* El font-style permite definir el estilo de la fuente, y se puede hacer con valores como normal, italic, oblique, y se puede dar un valor para que el texto se vea en cursiva, inclinado, o normal, y su valor por defecto es normal */
+  font-style: italic;
+
+}
+
+.main__cta{
+  display: inline-block;
+  background-color: orange;
+  color: white;
+
+  /*Los enlaces siempre estan subrayados, esto se puede eliminar con text-decoration, y se puede hacer con valores como none, underline, overline, line-through, inherit, y se puede quitar el subrayado, ponerlo arriba, ponerlo en medio, ponerlo en la mitad, o heredar el valor de su padre, su valor por defecto es underline */
+  text-decoration: none;
+  padding: 20px 60px;
+
+  border-radius: 30px; /* Propiedad que permite definir la redondez de las esquinas de un elemento, y se puede hacer con valores en pixeles, porcentajes, y valores relativos, y su valor por defecto es 0, y podemos darle un valor para que el elemento se vea mas redondeado o mas cuadrado, el valor maximo es 50%, y se pueden colocar varios valores, el primero para la esquina superior izquierda, el segundo para la esquina superior derecha, el tercero para la esquina inferior derecha, y el cuarto para la esquina inferior izquierda, y si se coloca un valor, se asume que es para todas las esquinas */
+}
+
+div{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+ /* background-color: orange;
+  Como el width y el height son iguales, se puede hacer un circulo con border-radius: 50%, y si se quiere hacer un ovalo, se puede hacer con border-radius: 50% 25%, y si se quiere hacer un triangulo, se puede hacer con border-radius: 50% 50% 0 0, y si se quiere hacer un triangulo invertido, se puede hacer con border-radius: 0 0 50% 50% */
+
+  /* Y PODEMOS APROVECHAR ESE CIRCULO PARA COLOCAR UNA IMAGEN DENTRO */
+  background-image: url('https://images.unsplash.com/photo-1473830394358-91588751b241?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  
+}
+
+.titulo{
+  color: crimson;
+  border: 5px solid black;
+
+  /* Podemos agregar fondos con la propiedad background*/
+
+  background-color: royalblue;
+  color: white;
+  padding: 20px 40px;
+  height: 500px;
+
+  /* Podemos insertar una imagen como fondo con background-image, y se puede agregar una imagen con url o directa en el proyecto */
+
+  /* Cuando tenemos una imagen mas pequeña que el contenedor, esta se repetira las veces necesarias para rellenar el tamaño del contenedor, debido a la propiedad por defecto background-repeat: repeat, o background-repeat: repeat-x (se repetira horizontalmente), repeat-y (se repetira verticalmente), y si no se quiere repetir, se tiene que colocar el valor: no repeat*/
+
+  /* Para definir el tamaño del background image, se puede hacer con background-size, y se puede hacer con valores como cover, contain, y valores en pixeles o porcentajes. Si se coloca un valor, se define el ancho de la imagen, y si se coloca dos valores, el primero es para el ancho y el segundo para el alto, pero recomendable usar cover para cubrir el tamaño del contenedor, junto con no repeat. Con el valor contain la imagen se vera completa, pero sin adaptarse al contenedor,  */
+
+  /* Podemos posicionar la imagen de fondo con la propiedad background-position, y se puede hacer con valores como top, bottom, left, right, center, y valores en pixeles o porcentajes, y si se colocan dos valores, el primero es para el eje x y el segundo para el eje y, y si se coloca un valor, se asume que es para ambos ejes, y si se coloca un valor en porcentaje, se toma como porcentaje del contenedor, y si se coloca un valor en pixeles, se toma como pixeles del contenedor, pero podemos simplificarlo con el valor center para posicionarlo al centro horizontal y verticalmente */
+
+  /* Tambien podemos definir gradientes (pasar de un color a otro degradandose), con la funcion background-image: linear-gradient(), y se puede hacer con dos valores, el primero para el color de inicio y el segundo para el color de fin */
+
+  /* Y PODEMOS MEZCLAR GRADIENTES CON IMAGENES DE FONDO, Y SE PUEDE HACER CON UNA FUNCION MULTIPLE: background-image: linear-gradient(), url('./ruta-imagen'), Y EN EL COLOR DEL GRADIENTE, SI O SI DEBE SER CON VALORES QUE ACEPTEN TRANSPARENCIAS */
+}

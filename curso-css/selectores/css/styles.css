@@ -1,0 +1,56 @@
+/* Es un comentario y no se visualiza en el navegador */
+h1 {
+  color: seagreen;
+}
+
+/* Selector de tipo, nombre o etiqueta, selecciona cualquier etiqyueta */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  color:seagreen;
+  font-style: italic;
+}
+
+
+/* Selector de clase, que selecciona a elemtnos identificados por su atributo class, y se selecciona con un punto antes del nombre y la llave */
+
+.subtitulo {
+  text-align: center;
+  background-color: teal;
+  color: white;
+}
+
+/* Selector de id, que selecciona a elementos identificados por su atributo id, y se selecciona con un gato antes del nombre y la llave */
+
+#titulo {
+  background-color: #e3104f;
+  color: white;
+  padding: 20px 10px;
+  font-family: cursive;
+  text-align: center;
+}
+
+/* Selectores combinadores, que permiten seleccionar elementos que cumplan con dos o más selectores */
+
+/* Combinador de descendencia, selecciona a los elementos que son descendientes de otro elemento */
+/* Primer elemento es el ancestro, y el segundo el elemento que debe estar dentro de ese ancestro */
+
+.section h2{
+background-color: crimson;
+}
+
+ul li {
+  font-size: 20px;
+  list-style: square;
+}
+
+/* Combinador de hijos directos, selecciona a los elementos que son hijos directos de otro elemento, represtando con signo de > mayor que */
+
+.section > ul {
+  background-color: black;
+  color:  white;
+  padding: 20px 40px;
+}

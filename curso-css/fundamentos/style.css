@@ -1,0 +1,48 @@
+/* La cascada. SIEMPRE SE APLICARAN LOS ULTIMOS SELECTORES EN SER DECLARADOR, LOS DE ABAJO SOBREESCRIBEN A LOS DE ARRIBA*/
+
+/*
+La especificidad. Siempre se aplicara el selector mas especifico, tiene mayor importancia que la cascada
+
+ESPECIFICIDAD 1:
+- Selector de tipo
+- Pseudoelementos
+
+ESPECIFICIDAD 10:
+- Selector de clase
+- Selector de Atributos
+- Pseudoclases
+
+ESPECIFICIDAD 100:
+- Selector de ID
+
+ESPECIFICIDAD 1000:
+- !important
+(SE PUEDE ROMPER LA ESPECIFICIDAD CON !important, PERO USARLO ES MALA PARCTICA)
+
+EL TIPO DE ESPECIFICIDAD DEL SELECTOR SE PUEDE VER AL PASAR EL MOUSE POR ENCIMA DEL SELECTOR EN CSS
+
+Y SI DOS COMPONENTES TIENEN LA MISMA ESPECIFICADAD, PREDOMINA LA CASCADA
+
+*/
+
+body{
+  font-family: monospace;
+  color: steelblue;
+}
+
+.container{
+  color:green;
+  font-family: Arial;
+  border: 2px solid green;
+  padding: 10px;
+}
+
+p {
+  color: black;
+  border: inherit; /* inherit hereda por la fuerza la propiedad del padre */
+  padding: inherit;
+}
+/* IMPORTANTE ES LA HERENCIA, QUE SIRVE PARA NO TENER QUE ESTAR REPITIENDO ESTILOS EN LOS HIJOS DIRECTOS DE UN ELEMENTO, PERO ES REVERSIBLE */
+/* ES LA CAPACIDAD DE LOS PADRES DE HEREDAR ESTILOS A LOS HIJOS, PERO NO TODOS LOS ESTILOS SE HEREDAN, SOLO LOS QUE NO SON ESPECIFICOS */
+/* EL PADDING, MARGIN, BORDER, HEIGHT NO SE HEREDAN, SOLO SE HEREDAN LOS ESTILOS DE TEXTO, COLOR, ETC */
+/* EL INSPECTOR DE ELEMENTOS DEL NAVEGADOR PERMITE MOSTRAR QUE ELEMENTOS SE HEREDAN, EN EL APARTADO DE INHERITED FROM... */

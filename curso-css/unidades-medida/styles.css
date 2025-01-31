@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.main{
+  height: 50vh;
+  background-color: tomato;
+}
+
+.main__titulo{
+  font-size: 30px
+}
+
+.img{
+  width: 600px;
+  /* width: 100%; Esto significa que el ancho del elemento será igual al 100% del ancho de su contenedor padre, en este caso, el body */
+}
+
+/* HAY DOS TIPOS DE UNIDADES DE MEDIDA
+
+1. Unidades de medida absolutas (porque no dependen de nada más que de sí mismas y tienen un valor fijo definido, su valor nunca cambia, nisiquiera cambiando de pais)
+
+  - px: píxeles
+  - cm: centímetros
+  - mm: milímetros
+  - in: pulgadas
+  - pt: puntos
+  - pc: picas
+
+2. Unidades de medida relativas (porque dependen de algo más que de sí mismas externo, y tienen un valor variable dependiendo del contexto)
+
+  - em: ems (relativo al tamaño de fuente del elemento padre o del ancestro más cercano, con un font size definido, por defecto 1 em = 16px en el caso que el elemento padre no tenga un font size definido)
+  - rem: raíz ems (dependiente al root del html, por defecto 1 rem = 16px, y se puede cambiar en el root del html con el selector :root o html. Tiene la ventaja de que el html toma el tamaño del font size del navegador, y si el usuario cambia el tamaño de la fuente, todos los elementos que tengan rem como unidad de medida mantendran su tamaño relativo al tamaño de la fuente del navegador)
+  - vw: viewport width (ancho del viewport), minimo es 0, y maximo es 100, 1 vw = 1% del ancho del viewport, se recomienda poner 100%, ya que poner 100vw agrega un scroll horizontal que hace que se desborde un poco.
+  - vh: viewport height (alto del viewport), minimo es 0, y maximo es 100, y esta medida no se puede colocar en porcentaje, solo con vh, 1 vh = 1% del alto del viewport, 100 vh es el 100% del alto del viewport, 50 vh es el 50% del alto del viewport, y asi sucesivamente.
+  EL VIEWPORT ES EL AREA VISIBLE DEL NAVEGADOR, Y SE MIDE EN PORCENTAJE, POR EJEMPLO 100 VW ES EL 100% DEL ANCHO DEL NAVEGADOR, Y 100 VH ES EL 100% DEL ALTO DEL NAVEGADOR
+  - %: porcentaje (relativo al tamaño del elemento padre al cual se le da el porcentaje, si el elemento padre tiene un width de 100px, y el hijo tiene un width de 50%, el hijo tendrá un width de 50px)
+*/

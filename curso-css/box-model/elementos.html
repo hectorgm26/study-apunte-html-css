@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elementos</title>
+
+  <style>
+
+h2{
+  background-color: seagreen;
+  color:white;
+  padding: 20px;
+}
+
+a, span {
+  background-color: tomato;
+  color:#fff;
+  padding: 100px;
+
+  display: inline-block;
+ /* Si se quiere colocar los elementos en línea, pero pudiendo aplicar propiedades del box model, se puede usar display inline-block */
+}
+
+  </style>
+</head>
+<body>
+  
+  <h2>Soy un elemento bloque</h2> <!-- Los elementos en bloque generan un salto en linea, ya que toman el 100% de su contenedor, y pueden utilizar todas las propiedades del box model -->
+  <h2>Soy un elemento bloque</h2>
+
+  <a href="#">Soy un elemento en linea</a>
+  <span>Soy un elemento en linea</span>
+
+</body>
+</html>

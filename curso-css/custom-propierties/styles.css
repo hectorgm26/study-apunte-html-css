@@ -1,0 +1,45 @@
+
+:root{
+
+  --color-primario: steelblue;
+  --border: 3px solid black;
+}
+
+.titulo{
+
+  color: var(--color-primario);
+  border: var(--border);
+
+}
+
+.cta{
+
+  border: var(--border);
+}
+
+/* Las custom propierties o propiedades personalizadas son una forma de definir variables en CSS, las cuales nos permiten almeacenar cuaalquier valor para luego reutilizarlo en cualquier parte de nuestro código CSS, nosotros definimos el nombre de la propiedad
+
+Estas se pueden declarar en cualquier selector, pero normalmente se declaran en el selector :root, el cual es el selector raíz de nuestro documento HTML, y se declaran de la siguiente forma:
+
+--nombre-propiedad: valor;
+
+El nombre no debe tener espacios, y se recomienda que se escriba en minúsculas, y si el nombre de la propiedad tiene más de una palabra, se recomienda que se separe con un guión medio, y el valor puede ser cualquier valor que acepte CSS, como colores, tamaños, fuentes, etc.
+
+Para utilizar una custom propierty, se hace de la siguiente forma:
+ejemplo:
+
+.root{
+  --color-primario: steelblue;
+}
+
+body{
+  background-color: var(--color-primario);
+}
+
+En este caso, estamos definiendo una custom propierty llamada --color-primario, la cual almacena el valor steelblue, y la estamos utilizando en el color de fondo de nuestro body, de esta forma, si queremos cambiar el color de fondo de nuestro body, solo tenemos que cambiar el valor de nuestra custom propierty en el selector :root, y automáticamente se cambiará en todo nuestro documento HTML
+
+Y la propiedad del selector debe ser relacionada con la custom propierty, es decir, compatible con el valor que almacena la custom propierty, si no es compatible, no se aplicará el valor de la custom propierty
+
+Las custom propierties son muy útiles para almacenar valores que se repiten en nuestro código CSS, y que queremos reutilizar en diferentes partes de nuestro código, y nos permite tener un código más limpio y organizado, y nos permite cambiar valores de forma más rápida y sencilla, ya que solo tenemos que cambiar el valor de la custom propierty en el selector :root, y automáticamente se cambiará en todo nuestro documento HTML
+
+*/

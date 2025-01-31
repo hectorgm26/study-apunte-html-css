@@ -1,0 +1,161 @@
+/* Todos los elementos o etiquetas son cajas, y tiene propiedades para manupularlas, y se dividen por capas */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  background-color: seagreen;
+  color: white;
+
+  width: 300px;
+  padding: 20px;
+
+  /* MARGENES AUTOMATICOS, EN CSS SE PUEDE USAR EL VALOR AUTO EN LOS MARGENES, Y SOLO FUNCIONA EN LOS HORIZONTALES, ES DECIR, LEFT Y RIGHT */
+  /* margin-left: auto; Esto generara un espacio a la izquierda, haciendo que la caja se mueva a la derecha, especificamente al centro */
+  /* margin-right: auto;  Escribiendo tanto margin left y right auto, el elemento se centrara horizontalmente, y se puede abreviar como: */
+  margin: 30px auto; /* 0 en top y bottom, y auto en left y right, o bien de 30px auto para separar elementos*/;
+
+  display: block; /* Por defecto el h1 es block, pero se puede cambiar a inline, inline-block, flex, grid, etc.
+  LOS MARGENES SOLO FUNCIONAN EN ELEMETOS BLOQUES, Y DEBEN TENER UN WIDTH DEFINIDO, ES DECIR, DISTINTO AL QUE VIENE POR DEFECTO EN AUTO
+
+  La propiedad display permite cambiar el tipo de display de un elemento, y los valores pueden ser:
+  - block: el elemento se comporta como un bloque, y ocupa todo el ancho disponible, y se muestra en una nueva linea.
+  - inline: el elemento se comporta como una linea, y ocupa solo el ancho del contenido, y no se muestra en una nueva linea.
+  - inline-block: el elemento se comporta como una linea, y ocupa solo el ancho del contenido, pero se muestra en una nueva linea.
+  - none: el elemento no se muestra en la pagina, y no ocupa espacio en la pagina.
+  - flex: el elemento se comporta como un elemento flex, y se puede acomodar de manera automatica en un contenedor.
+  - grid: el elemento se comporta como un elemento grid, y se puede acomodar de manera automatica en un contenedor.
+  - table: el elemento se comporta como una tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-cell: el elemento se comporta como una celda de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-row: el elemento se comporta como una fila de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-column: el elemento se comporta como una columna de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-column-group: el elemento se comporta como un grupo de columnas de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-row-group: el elemento se comporta como un grupo de filas de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-header-group: el elemento se comporta como un grupo de encabezados de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-footer-group: el elemento se comporta como un grupo de pies de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - table-caption: el elemento se comporta como un pie de tabla, y se puede acomodar de manera automatica en un contenedor.
+  - list-item: el elemento se comporta como un item de lista, y se puede acomodar de manera automatica en un contenedor.
+  - run-in: el elemento se comporta como un elemento run-in, y se puede acomodar de manera automatica en un contenedor. */
+
+  border: 10px solid black;
+
+  /* Existe una propiedad llamada box-sizing, que sirve para definir como se va a medir el ancho y alto de un elemento, si se va a medir desde el borde, o desde el contenido
+  Dentro de sus valores por defecto es content-box, que mide el ancho y alto del contenido, y si se le agrega padding o border, se va a sumar al ancho y alto del contenido, y se va a hacer mas grande la caja, por tanto, no toma en cuenta el padding y border en el ancho y alto de la caja, y se va a sumar al ancho y alto del contenido, ni tampoco toma en cuenta el margin, ya que este se agrega fuera de la caja, ni el width y height, ya que se mide desde el contenido
+  
+  border-box: mide el ancho y alto de la caja desde el borde, es decir, si se le agrega padding o border, no se va a sumar al ancho y alto del contenido, sino que se va a restar al ancho y alto de la caja, y se va a hacer mas pequeña la caja, por tanto, toma en cuenta el padding y border en el ancho y alto de la caja, y se va a restar al ancho y alto del contenido, ni tampoco toma en cuenta el margin, ya que este se agrega fuera de la caja, ni el width y height, ya que se mide desde el contenido. ESTO ES PARA QUE EL WIDHT Y HEIGHT SEAN VALORES INMUABLES, Y NO SE MODIFIQUEN POR EL PADDING Y BORDER, Y SEAN MAS FACILES DE MANEJAR
+
+  EL INSTRUCTOR RECOMIENDA APLICAR ESTA PROPIEDAD AL INICIO EN EL SELECTOR UNIVERSAL (*{})CON MARGIN 0 Y PADDING 0, PARA QUE TODOS LOS ELEMENTOS SEAN IGUALES, Y PODAMOS CALCULAR CORRECTAMENTE EL ANCHO Y ALTO DE LOS ELEMENTOS, Y NO SE MODIFIQUEN POR EL PADDING Y BORDER, Y SEAN MAS FACILES DE MANEJAR */
+}
+
+.cta{
+  background-color: tomato;
+  color: white;
+  padding: 20px;
+
+  /* ESTE ELEMENTO CON EL MARGIN PARA CENTRADO NO FUNCIONA, YA QUE ES UN ELEMENTO INLINE, NECESITA EL DISPLAY BLOCK  */
+  width: 200px;
+  margin: 30px auto;
+  display: block;
+}
+
+p{
+  margin-right: auto;
+  width: 300px;
+  padding: 20px;
+  background-color: firebrick;
+  color: #fff;
+  font-weight: bold;
+}
+
+/*
+  width: max-content; se define el ancho del elemento de la caja, en base al contenido, por defecto es auto, y aca se determina por el texto
+  max-width: 300px; se define el ancho maximo de la caja, en casos que querramos que tenga de maximo un tamaño fijo para no pasarse
+  min-width: 100px;
+*/
+/*
+
+1ERA CAPA: CONTENT BOX
+
+width: define el ancho del elemento
+max-width: define el ancho maximo del elemento (no puede sobrepasar este ancho)
+min-width: define el ancho minimo del elemento (no puede medir menos de este ancho)
+
+height: define el alto del elemento
+min-height: define el alto minimo del elemento (no puede medir menos de este alto)
+max-height: define el alto maximo del elemento (no puede sobrepasar este alto)
+
+overflow: define el comportamiento de la caja, en caso de que el contenido sea mas grande que la caja contenedora
+  - visible: el contenido se muestra fuera de la caja
+  - hidden: el contenido se oculta
+  - scroll: se muestra una barra de desplazamiento
+  - auto: se muestra una barra de desplazamiento solo si es necesario
+  - inherit: hereda el valor de la propiedad de su padre
+
+
+2DA CAPA: PADDING BOX
+
+CAPA DE RELLENO QUE ESTA ENTRE LA CAPA DEL CONTENIDO Y DEL BORDER QUE AYUDA A CREAR UN ESPACIO ENTRE EL BORDE DE UN ELEMENTO Y SU CONTENIDO
+PARA ASI EVITAR QUE SE PEGUEN DIRECTAMENTE. AGREGAR PADDING PUEDE INCREMENTAR EL TAMAÑO DE LA CAJA
+
+EJEMPLO: padding: 40px; /* ahora mide 380px de ancho y 280px de alto, es decir, 40px sumados a cada lado de la caja.
+
+EL PADDING TIENE 4 PROPIEDADES, en base a la posicion en donde se quiera agregar el relleno
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-bottom: 60px;
+  padding-left: 80px;
+
+  padding: top right bottom left
+  padding: 20px 40px 60px 80px; Propiedad abreviada, en base al orden de las manecillas del reloj
+  y si se deja por ejemplo la izquierda sin nada, se toma el valor de su contraparte la derecha, y si se coloca un solo valor, lo aplica a todos los lados uguales
+
+EL PADDING SOLO SE PUEDE UTILIZAR EN ELEMENTOS BLOQUES, Y NO EN ELEMENTOS INLINE, POR ENDE, SI SE QUIERE UTILIZAR EN ELEMENTOS INLINE, PODEMOS UTILIZAR INLINE-BLOCK, O CAMBIAR EL DISPLAY A BLOCK
+
+3ERA CAPA: BORDER BOX
+
+PERMITE DEFINIR LA LINEA DEL BORDE DEL ELEMENTO
+3 CARACTERISTICAS: COLOR, ESTILO Y ANCHO
+
+border-color: purple;
+border-style: solid;
+border-width: 10px; SE PUEDEN USAR PALABRAS RESERVADAS COMO THIN (DELGADO), MEDIUM Y THICK (GRUESO)
+
+PERO SE PUEDE ABREVIAR CON border: y el orden no importa, se recomienda partir por ancho, estilo y color
+
+ESTILOS:
+  - solid: linea solida sin alteracion
+  - dotted: linea punteada
+  - dashed: linea por medio de guiones
+  - double: linea doble
+  - groove: borde ranurado en relieve en 3d
+  - ridge: borde estriado en relieve en 3d
+  - inset: borde en relieve
+  - outset: borde en relieve
+  - none: sin borde
+  - hidden: borde oculto
+
+4TA CAPA: MARGIN BOX
+
+PERMITE ESTABLECER UN MARGEN EN LAS 4 DIRECCIONES DE LA CAJA, PARA ASI CREAR ESPACIOS ENTRE ELEMENTOS
+SIEMPRE TENEMOS UN MARGIN POR DEFECTO QUE CSS LO AGREGA AL PRINCIPIO Y AL FINAL DE LA PAGINA, CADA NAVEGADOR LO AGREGA POR DEFECTO
+La propiedad margin es una propiedad abreviada que se puede usar para establecer los márgenes en todas las direcciones del reljos a la vez, al igual que padding
+
+margin: top right bottom left
+margin: 20px 40px 60px 80px;
+*/
+
+/*
+REINICIO DE CSS PARA ELIMINAR ESTILOS POR DEFECTO, SE USA EL SELECTOR UNIVERSAL *
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+
+*/

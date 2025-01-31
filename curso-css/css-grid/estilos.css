@@ -1,0 +1,105 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  height: 500px;
+  width: 90%;
+  margin: 40px auto;
+  border: 2px solid;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 100px 10em 1fr;
+
+  gap: 20px
+}
+
+.item{
+  color: #fff;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.item--1{
+  background-color: teal;
+  grid-column: 1/5; /* Esto significa que el elemento ocupara el espacio de las columnas desde su linea 1 a 5, que cubrira 4 columnas. */
+  grid-row: 1/2; /* Esto significa que el elemento ocupara el espacio de las filas desde su linea 3 a 4, que cubrira 1 fila. */
+}
+
+.item--2{
+  background-color: slateblue;
+  grid-column: 1/5;
+  grid-row: 2/3;
+}
+
+.item--3{
+  background-color: tomato;
+  grid-column: 1/7;
+  grid-row: 3/4;
+}
+
+.item--4{
+  background-color: mediumvioletred;
+  grid-column: 5/7;
+  grid-row: 1/3;
+}
+
+
+/* CSS GRID es una forma de crear layouts de una forma más sencilla y rápida. Maneja dos dimensiones: filas y columnas, con los cuales crea grillas bidimensionales. Las filas son horizontales de izquierda a derecha, y las columnas son verticales de arriba hacía abajo. PARA VISUALIZAR LA GRID EN EL NAVEGADOR HAY QUE IR A DEV TOOLS, LAYOUT Y LUEGO GRID OVERLAYS, Y MARCAR LA OPCION DE DIV.CONTAINER PARA VER LA GRID. */
+
+/* A diferencia de flexbox, grid permite controlar ambos ejes, lo que nos da un mayor control sobre el diseño de la página, y se puede complementar con flexbox para crear diseños más complejos. */
+
+/* se basa en un sistema de filas y columnas, donde podemos definir el tamaño de las mismas y la cantidad de elementos que queremos que se muestren en cada una de ellas. */
+
+/* Para crear un grid, primero debemos definir un contenedor, que será el padre de todos los elementos que queremos que formen parte de la grilla, y si los elementos no tienen un height definido, los elementos grid items se estiraran para ocupar el espacio del contenedor. */
+
+/*
+CREAR COLUMNAS
+Se usa la propiedad grid-template-columns, y se tiene el valor fr que corresponde a fracciones, que es una unidad de medida que nos permite dividir el espacio disponible en partes iguales.
+
+Ejemplo: si quiero definiar una columna, pondre 1fr, que singifica que la columna medira una fraccion del contenedor, PERO si quiero dos columnas 1fr 2fr significa que la primera columna medira una fraccion y la segunda dos fracciones del contenedor padre, por lo que la segunda fila medira el dible de la primera.
+
+Ahora, si quiero colocar 6 columnas pondre 1fr 1fr 1fr 1fr 1fr 1fr, PERO ESTO SE PUEDE ACORTAR CON LA FUNCION repeat(6, 1fr), que significa que se repetira 6 veces la fraccion 1fr. El primer valor es el numero de veces que se repetira la columna, y el segunda valor sera la unidad de medida.
+
+CREAR FILAS
+Se usa la propiedad grid-template-rows, y se tiene el valor fr que corresponde a fracciones, que es una unidad de medida que nos permite dividir el espacio disponible en partes iguales, y tambien se puede usar repeat().
+
+Pero tambien podemos hacer que las filas tengan valores distintos, como por ejemplo grid-template-rows: 100px 10em 1fr, donde la primera fila medira 100px, la segunda 10em y la tercera una fraccion del contenedor padre.
+
+AVISO = SIEMPRE EN EL LAYOUT DEL NAVEGADOR HABRA UNA FILA Y UNA COLUMNA MAS DE LAS QUE SE HAYAN DEFINIDO, ESTO ES PORQUE CADA FILA Y COLUMNA TIENEN UNA LINEA INICIAL Y FINAL, POR ENDE SIEMPRE HABRA UNA LINEA MAS DE LAS QUE SE HAYAN DEFINIDO.
+
+Las lineas en Grid permiten dividir el contenedor en partes, y posicionan los elementos en la grilla.
+
+grid-column, que permite definir en que columnas se ubicara el elemento, y se puede usar valores como span, que permite que el elemento ocupe varias columnas, y tambien se puede usar valores numericos para definir la cantidad de columnas que ocupara el elemento.
+
+grid-row, que permite definir en que filas se ubicara el elemento, y se puede usar valores como span, que permite que el elemento ocupe varias filas, y tambien se puede usar valores numericos para definir la cantidad de filas que ocupara el elemento.
+
+PODEMOS TAMBIEN DAR ESPACIO ENTRE FILAS Y COLUMNAS CON GAP, Y SE PUEDE USAR VALORES COMO PX, EM, REM, ETC.
+
+grid-area, que permite definir en que columnas y filas se ubicara el elemento, y se puede usar valores como span, que permite que el elemento ocupe varias columnas y filas, y tambien se puede usar valores numericos para definir la cantidad de columnas y filas que ocupara el elemento.
+
+grid-template-areas, que permite definir un nombre a cada una de las areas de la grilla, y luego se puede usar esos nombres para ubicar los elementos en la grilla.
+
+grid-auto-rows, que permite definir el tamaño de las filas que no tienen un tamaño definido.
+
+grid-auto-columns, que permite definir el tamaño de las columnas que no tienen un tamaño definido.
+
+grid-auto-flow, que permite definir la dirección en la que se ubicaran los elementos en la grilla.
+
+grid-column-gap, que permite definir el espacio entre las columnas.
+
+grid-row-gap, que permite definir el espacio entre las filas.
+
+grid-column-start, que permite definir en que columna empezara el elemento.
+
+grid-column-end, que permite definir en que columna terminara el elemento.
+
+grid-row-start, que permite definir en que fila empezara el elemento.
+
+grid-row-end, que permite definir en que fila terminara el elemento.
+
+
+*/

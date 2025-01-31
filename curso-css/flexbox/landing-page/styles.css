@@ -1,0 +1,129 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --background-primario:#657ED4;
+}
+
+body{
+
+  font-family: "Archivo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+}
+
+.container{
+  width: 90%;
+  max-width: 1200px; /* Para que el widht siempre sea de 90%, pero que no pase de 1000px, ideal para limita el tamaño */
+  margin: auto;
+  overflow: hidden;
+}
+
+.hero{
+  background-color: var(--background-primario)
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* El gap permite dar un espacio entre los elementos, en este caso entre los elementos del nav */
+}
+
+.nav__logo{
+  background-color: white;
+  padding: 0 1em;
+  height: 100%; /* Esto significa que el elemento ocupará el 100% del alto del contenedor */
+
+  display: flex;
+  align-items: center;
+}
+
+.nav__list{
+  list-style: none;
+  padding: 0; /* Esto ya que todas las listas traen un padding por defecto, y si se le quita el estilo con none, este permanece, por ende se elimina */
+  display: flex;
+  gap: 2em;
+}
+
+.nav__item{
+  padding: .7em 0; /* El punto antes del numero significa que se está utilizando un valor relativo al tamaño de la fuente */
+}
+
+.nav__link{
+  color: white;
+  text-decoration: none;
+}
+
+/* MAIN */
+
+.main{
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  padding: 5em 0;
+}
+
+.main__img{
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  display: block; /* El display block permite que el elemento se comporte como un bloque, es decir, que ocupe todo el ancho disponible, y en este caso permite ademas que la imagen se centre debido a que se le asigna un margin auto */
+}
+
+.main___title{
+  font-size: 2.4rem;
+}
+
+.main__parrafo{
+  font-weight: 300;
+  line-height: 1.6; /* el line-height permite dar un espacio entre las lineas de texto, es decir, la separación entre una linea y otra, y por otra, nos referimos a la separación entre el texto y el siguiente elemento */
+  margin: .8rem 0;
+}
+
+.main__cta{
+  background-color: var(--background-primario);
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1em 2em;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+@media (min-width: 766px){
+
+  .nav{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .main{
+    flex-direction: row;
+  }
+
+  .main__figure{
+    width: 45%;
+  }
+
+  .main__texts{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .main___title{
+    font-size: 2.8rem;
+  }
+
+
+}

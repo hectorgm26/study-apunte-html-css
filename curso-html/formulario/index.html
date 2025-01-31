@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularios</title>
+</head>
+<body>
+
+  <h1>Aplica al trabajo</h1>
+
+  <form>
+    <label for="nombre">Ingresa tu nombre</label>
+    <input type="text" placeholder="Ingresa tu nombre:" id="nombre" required>
+
+    <br><br>
+
+    <label for="email">Ingresa tu email</label>
+    <input type="email" placeholder="Ingresa tu email:" id="email" required>
+
+    <br><br>
+
+    <label for="pais">Ingrese su pais</label>
+    <select id="pais">
+      <option value="CO">Colombia</option>
+      <option value="VE">Venezuela</option>
+      <option value="EC">Ecuador</option>
+      <option value="PE">Peru</option>
+      <option value="CH" selected>Chile</option>
+      <option value="NO">Otro</option>
+    </select>
+
+    <h3>Elige tu horario</h3>
+    <label>
+      <input type="radio" name="horario">Mañana
+    </label>
+    <label>
+      <input type="radio" name="horario">Tarde
+    </label>
+    <label>
+      <input type="radio" name="horario">Noche
+    </label>
+
+    <h3>Acepta terminos y condiciones</h3>
+    <label>
+      <input type="checkbox">Acepta terminos y condiciones
+    </label>
+
+    <h3>Deja tus comentarios</h3>
+    <textarea cols="30" rows="10"></textarea>
+
+    <br><br>
+    <input type="submit">
+    <input type="reset" value="Limpiar">
+
+
+  </form>
+  
+</body>
+</html>

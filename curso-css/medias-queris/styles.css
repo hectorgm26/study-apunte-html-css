@@ -1,0 +1,65 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.element{
+  width: 50%;
+  height: 200px;
+  background-color: slateblue;
+  margin: 0 auto;
+}
+
+/* @media (min-width: 600px){
+
+  .element{
+    background-color: crimson;
+  }
+
+} */
+
+@media (min-width:600px) {
+
+  body{
+    background-color: blue;
+  }
+  .element{
+    width: 90%;
+    background-color: crimson;
+  }
+
+}
+
+@media (min-width:800px) {
+
+  body{
+    background-color: green;
+  }
+  .element{
+    width: 90%;
+    background-color: yellow;
+  }
+
+}
+
+
+
+/* Las media queries son un tipo de condicional en css, y se utilizan para cambiar el diseño de la página dependiendo del tamaño de la pantalla del dispositivo, de la orientacion de la pantalla y del ancho del viewport. Con estas, definiremos estilos que solo se aplicaran cuando se cumpla la condicion de la media query
+
+Max-width (ancho maximo): indica cual sera el valor maximo que debe tener el viewport para que se apliquen los estilos dentro de la media query, es decir, si el viewport tiene un valor mayor al indicado, no se aplicaran los estilos dentro de la media query.
+
+Min-width (ancho minimo): indica cual sera el valor minimo que debe tener el viewport para que se apliquen los estilos dentro de la media query, es decir, si el viewport tiene un valor menor al indicado, no se aplicaran los estilos dentro de la media query
+
+SE PUEDEN TENER VARIAS MEDIAS QUERIES EN UN MISMO ARCHIVO CSS, PERO PARA QUE FUNCIONEN BIEN EN JERARQUIA, SIGUIENDO LAS SIGUIENTES ESTRATEGIAS:
+
+Mobile First (de menor a mayor): Usa min-width. ESTE ES EL ENFOQUE MAS RECOMENDADO
+Desktop First (de mayor a menor): Usa max-width.
+
+SIM EMBARGO, con max-width, se deben ordenar de mayor a menor para que las reglas se apliquen correctamente, ya que la última media query tiene más especificidad
+Y con min-width, se deben ordenar de menor a mayor para que las reglas se apliquen correctamente, ya que la última media query tiene más especificidad
+
+Para diseño responsivo se recomiendan unidades de medidas relativas como %, em, rem, vw, vh, vmin, vmax, etc. para que los elementos se adapten al tamaño de la pantalla del dispositivo.
+
+El viewport es el area visible del dispositivo, y la eiqueta viewport es una etiqueta meta que se coloca en el head del documento html y se utiliza para controlar el tamaño del viewport y la escala de la pagina en dispositivos moviles, indicandole que el documento html deba ocupar el 100% del ancho del viewport
+
+*/

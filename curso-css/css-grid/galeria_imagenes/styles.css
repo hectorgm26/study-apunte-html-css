@@ -1,0 +1,162 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+
+  font-family: "Archivo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+}
+
+.titulo{
+  text-align: center;
+  font-size: 3rem;
+  padding: .8em .4em;
+}
+
+.galeria__pic{
+  position: relative; /* Esto hacer que el contenedor sea relativo, es decir en simples palabras, que el contenedor sea el padre de los hijos, y los hijos se posicionen con respecto a este contenedor padre, y no con respecto al viewport */
+  /* El position relative nos sirve para los pseudo elementos, ya que estos se posicionan con respecto al contenedor padre, y no con respecto al viewport, como por ejemplo el ::after (despues) o ::before (antes)*/
+  overflow: hidden;
+  cursor: pointer; /* Esto es para que cada vez que pase el mouse por encima de la imagen, el cursor cambie a una manito, indicando que es un enlace */
+}
+
+.galeria__pic::after{ /* Los pseuelementos deben tener 4 puntos */
+
+/* Este pseudoelemente me permite crear elementos con css sin usar html, y se pondra como hijo de galeria__pic */
+  content: "Hola mundo"; /* Esto es obligatorio para que funcione el pseudo elemento */
+  position: absolute; /* Esto es para que el pseudo elemento se posicione con respecto al contenedor padre, y no con respecto al viewport */
+
+  top: 0;  /* Esto es para que el pseudo elemento se posicione en la parte superior del contenedor padre */
+  bottom: 0; /* Esto es para que el pseudo elemento se posicione en la parte inferior del contenedor padre */
+  left: 0; /* Esto es para que el pseudo elemento se posicione en la parte izquierda del contenedor padre */
+  right: 0; /* Esto es para que el pseudo elemento se posicione en la parte derecha del contenedor padre */
+  background-color: rgba(128, 0, 128, 0.585); /* Esto es para que el pseudo elemento tenga un fondo de color */
+  color: white; /* Esto es para que el texto del pseudo elemento sea de color blanco */
+  text-align: center;
+  font-size: 1.5rem;
+
+  /*  width: 100%; Esto es para que el pseudo elemento ocupe todo el ancho del contenedor padre */
+  /* height: 100%; Esto es para que el pseudo elemento ocupe todo el alto del contenedor padre */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: scale(0); /* Esto es para que el pseudo elemento tenga un tamaño de 0, es decir, que no se vea */
+  transition: transform .3s; /* Esto es para que el pseudo elemento tenga una transicion de 0.3 segundos, cuando se pase el mouse por encima de la imagen */
+
+}
+
+.galeria__pic:hover::after{ /* Las pseudoclases debem tener 2 puntos, y luego del hover se coloca el pseudo elemento que se quiere modificar */
+/* Hover detecta cuando se pasa el mouse por encima de un elemento, es decir, que pase algo cuando se pase el mouse por encima de un elemento */
+
+  transform: scale(1); /* Esto es para que el pseudo elemento tenga un tamaño de 1, es decir, que se vea */
+
+  /* filter: brightness(0.5); Esto es para que la imagen se oscurezca un 50% cuando se pase el mouse por encima de la imagen */
+}
+
+.galeria__img{
+  width: 100%;
+  height: 100%; /* Para que la imagen ocupe todo el espacio del contenedor, y en este caso, el contenedor con grid seria el grid-item, ocupando todo el espacio del grid-item */
+  object-fit: cover; /* Esta propiedad sirve para que la imagen se ajuste al tamaño del contenedor, sin deformar la imagen */
+}
+
+.galeria{
+  padding-bottom: 3em;
+  padding-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas con el mismo ancho */
+  grid-auto-rows: 160px; /* Grid auto rows es para que las filas se ajusten al contenido, con filas automaticas y con un numero indefinido */
+  gap: .8em;
+
+/* PODEMOS DEFINIR MAPAS O AREAS DEL GRID con la propiedad grid-template-areas, en este caso, es obligado para definir las columnas (ya que las filas son automaticas), y las areas se define con el nombre que yo quiera. Las columnas se definen con nombres y las filas con comillas "" */
+  /*
+  EJEMPLO:
+  grid-template-areas:
+    "imagen1 imagen2 imagen3 imagen4"
+    "imagen5 imagen6 imagen7 imagen8"
+    "imagen9 imagen10 imagen11 imagen12"
+    "imagen13 imagen14 imagen15 imagen16"; si quiero 4 filas, creo 4 comillas por linea, y para ver esto en detalle en el navegador, en el devtools hay que ir a layout, luego grid, activar overlay grid, y el section.gallery, y clic en el checkbox display area names
+
+    ¿COMO RECONOCE GRID LOS NOMBRES DE LOS ELEMENTOS?
+    grid-area: nombre; en el css de cada elemento, se le asigna un nombre a cada elemento, y luego en el grid-template-areas, se le asigna el nombre a cada area, y grid se encarga de ubicar cada elemento en su area correspondiente. EJEMPLO:display:
+
+    .imagen1{
+      grid-area: imagen1;
+    }
+    .imagen2{
+      grid-area: imagen2;
+    }
+    grid-template-areas:
+    "imagen1 imagen2 ";
+    */
+
+    grid-template-areas:
+    "img1 img1 img2 img3"
+    "img1 img1 img4 img4"
+    "img5 img5 img6 img7"
+    "img5 img5 img8 img8";
+}
+
+.galeria__pic--g1{
+  grid-area: img1;
+}
+
+.galeria__pic--g2{
+  grid-area: img2;
+}
+
+.galeria__pic--g3{
+  grid-area: img3;
+}
+
+.galeria__pic--g4{
+  grid-area: img4;
+}
+
+.galeria__pic--g5{
+  grid-area: img5;
+}
+
+.galeria__pic--g6{
+  grid-area: img6;
+}
+
+.galeria__pic--g7{
+  grid-area: img7;
+}
+
+.galeria__pic--g8{
+  grid-area: img8;
+}
+
+@media (max-width: 768px){
+
+.titulo{
+  font-size: 2rem;
+}
+
+.galeria{
+  grid-template-columns: repeat(2, 1fr); /* 4 columnas con el mismo ancho */
+  gap: .8em;
+
+  grid-template-areas:
+    "img1 img1"
+    "img1 img1"
+    "img2 img3"
+    "img4 img4"
+    "img4 img4"
+    "img5 img5"
+    "img5 img5"
+    "img6 img7"
+    "img8 img8"
+ }
+}
